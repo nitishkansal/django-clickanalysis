@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 
 class ClickAnalysisMiddleware(object):
     def process_request(self, request):
-        if request.GET.get('cid', '') and request.GET.get('link', ''):
+        if request.GET.get('cid', ''):
             try:
                 campaign = Campaign.objects.get(campaign_id=request.GET['cid'])
             except:
@@ -13,7 +13,7 @@ class ClickAnalysisMiddleware(object):
             params_to_send = []
             for g_p in get_params:
                 name = g_p.split('=')[0]
-                if name != 'link' and name != 'cid':
+                if name != 'cid':
                     params_to_send.append(g_p)
 
             params = '&'.join(params_to_send)
