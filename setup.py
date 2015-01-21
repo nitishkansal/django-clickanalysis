@@ -10,13 +10,14 @@ except ImportError:
 
 from setuptools import find_packages
 
+version = '1.0.0'
 
 specs = {
     'name' : 'clickanalysis',
-    'version' : '1.0.0',
-    'description' : 'Django package to track all clicks in email campaigns',
-    'long_description' : 'Django package to track all clicks in email campaigns',
-    'url' : 'https://github.com/nitishkansal',
+    'version' : version,
+    'description' : 'Django package to track all clicks across the site or email campaigns',
+    'long_description' : 'Django package to track all clicks across the site or email campaigns',
+    'url' : 'https://github.com/nitishkansal/django-clickanalysis',
     'author' : 'Nitish Kansal',
     'author_email' : 'tanu.kansal@gmail.com',
     'keywords' : ['click analysis', 'tracking'],
