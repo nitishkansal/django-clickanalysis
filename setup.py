@@ -8,6 +8,8 @@ try:
 except ImportError:
     from distutils.core import setup
 
+from setuptools import find_packages
+
 
 specs = {
     'name' : 'clickanalysis',
@@ -19,7 +21,7 @@ specs = {
     'author_email' : 'tanu.kansal@gmail.com',
     'keywords' : ['click analysis', 'tracking'],
     'license' : 'BSD',
-    'packages' : ['clickanalysis'],
+    'packages' : find_packages(),
     'classifiers' : (
         'Development Status :: 3 - Alpha',
         'Environment :: Console',
