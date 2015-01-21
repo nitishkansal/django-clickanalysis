@@ -3,11 +3,15 @@ from django.db import models
 
 
 class UUIDField(models.CharField) :
+    """Model responsible for generating UUID for every campaign
+       UUID is 36 char long unique identifeir
+    """
+
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = kwargs.get('max_length', 255 )
         kwargs['blank'] = True
         models.CharField.__init__(self, *args, **kwargs)
-    
+
     def pre_save(self, model_instance, add):
         if add :
             value = uuid.uuid4()
@@ -25,6 +29,10 @@ class UUIDField(models.CharField) :
 
 
 class Campaign(models.Model):
+    """Model responsible for creating campaigns and 
+       to differentiate all analysis runs from each other
+    """
+
     name = models.CharField(max_length=255)
     campaign_id = UUIDField(editable=False)
     expired = models.BooleanField(default=False)
@@ -35,6 +43,10 @@ class Campaign(models.Model):
 
 
 class ClickTracking(models.Model):
+    """Model responsible for keeping track of clicks
+       Its related to campaigns so we can get all clicks in
+       a campaign
+    """
     campaign = models.ForeignKey(Campaign)
     link = models.CharField(max_length=255)
     count = models.IntegerField(default=0)
