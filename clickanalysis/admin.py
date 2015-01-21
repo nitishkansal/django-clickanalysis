@@ -1,4 +1,4 @@
-from account.models import Campaign, ClickTracking
+from clcikanalysis.models import Campaign, ClickTracking
 from django.contrib import admin
 
 
